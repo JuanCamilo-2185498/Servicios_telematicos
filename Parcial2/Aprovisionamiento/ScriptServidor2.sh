@@ -5,7 +5,7 @@ sudo yum install bind-utils bin-libs bind-* -y
 sudo userradd sentinel
 sudo yum install openssl -y
 sudo yum install mod_ssl -y
-sudo openssl genrsa -out ca.key 1024
+sudo openssl genrsa -out ca.key 2048
 sudo openssl req -new -key ca.key -out ca.csr
 sudo openssl x509 -req -days 365 -in ca.csr -signkey ca.key -out ca.crt
 sudo cp ca.crt /etc/pki/tls/certs/
