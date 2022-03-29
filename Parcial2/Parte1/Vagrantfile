@@ -1,0 +1,24 @@
+Vagrant.configure("2") do |config|
+if Vagrant.has_plugin? "vagrant-vbguest"
+config.vbguest.no_install = true
+config.vbguest.auto_update = false
+config.vbguest.no_remote = true
+end
+config.vm.define :firewall do |firewall|
+firewall.vm.box = "bento/centos-7.9"
+firewall.vm.network :public_network, ip: "192.168.1.100"
+firewall.vm.network :private_network, ip: "192.168.50.2"
+firewall.vm.hostname = "vm1firewall"
+end
+config.vm.define :servidor2 do |servidor2|
+servidor2.vm.box = "bento/centos-7.9"
+servidor2.vm.network :private_network, ip: "192.168.50.3"
+servidor2.vm.hostname = "servidor2"
+end
+config.vm.define :servidor3 do |servidor3|
+servidor3.vm.box = "bento/centos-7.9"
+servidor3.vm.network :private_network, ip: "192.168.50.4"
+servidor3.vm.hostname = "servidor3"
+servidor3.vm.network :forwarded_port, guest: 443, host: 5572
+end
+end
