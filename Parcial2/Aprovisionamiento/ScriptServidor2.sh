@@ -11,5 +11,6 @@ sudo openssl x509 -req -days 365 -in ca.csr -signkey ca.key -out ca.crt
 sudo cp ca.crt /etc/pki/tls/certs/
 sudo cp ca.key /etc/pki/tls/private/
 sudo cp ca.csr /etc/pki/tls/private/
+sudo chmod 600 /etc/pki/tls/certs/
 sudo chmod 600 /etc/pki/tls/private/ca.csr
 sudo chmod 600 /etc/pki/tls/private/ca.key

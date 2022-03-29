@@ -1,0 +1,14 @@
+$ORIGIN 50.168.192.in-addr.arpa.
+$TTL 3H
+@       IN SOA  servidor3.sentinel.com.    root@sentinel.com. (
+                                        0       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+@       IN      NS      servidor3.sentinel.com.
+@       IN      NS      servidor2.sentinel.com.
+@       IN      NS      firewall.sentinel.com.
+3       IN      PTR     servidor3.sentinel.com.
+2       IN      PTR     servidor2.sentinel.com.
+100     IN      PTR     firewall.sentinel.com.
